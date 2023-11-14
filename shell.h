@@ -101,7 +101,13 @@ void free_line_lt(line_list **hd);
 /*inked lists2.c */
 rvar *add_rvar_node(rvar **hd, int lvar, char *var, int lval);
 void free_rvar_lt(r_var **hd);
->
+
+/* string functions */
+char *_stct(char *d, const char *s);
+char *_stcp(char *d, char *s);
+int _stcmp(char *s1, char *s2);
+char *_stchr(char *s, char c);
+int _stspn(char *s, char *accept);
 
 
 #endif
