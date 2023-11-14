@@ -109,5 +109,10 @@ int _stcmp(char *s1, char *s2);
 char *_stchr(char *s, char c);
 int _stspn(char *s, char *accept);
 
+/* memory management functions */
+void _memcp(void *nptr, const void *ptr, unsigned int s);
+void *_reloc(void *ptr, unsigned int o_s, unsigned int ne);
+char **_relocdp(char **ptr, unsigned int o_s, unsigned int ne);
+
 
 #endif
