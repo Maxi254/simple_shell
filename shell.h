@@ -115,4 +115,11 @@ void *_reloc(void *ptr, unsigned int o_s, unsigned int ne);
 char **_relocdp(char **ptr, unsigned int o_s, unsigned int ne);
 
 
+/* au_st2.c */
+char *_stdp(const char *a);
+int _stlen(const char *a);
+int cm_char(char str[], const char *dm);
+char *_sttk(char str[], const char *dem);
+int _isdigit(const char *s);
+
 #endif
