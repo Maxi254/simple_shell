@@ -8,7 +8,7 @@
  * @lens_val: l
  * Return: address of the head.
  */
-rvar *add_rvar_node(r_var **hd, int l_var, char *val, int l_val)
+rvar *add_rvar_node(rvar **hd, int l_var, char *val, int l_val)
 {
 	rvar *n, *t;
 
