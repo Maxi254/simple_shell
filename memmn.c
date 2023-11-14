@@ -3,7 +3,7 @@
 /**
  * _memcp - copies info btwn void ptr.
  * @nptr: dest ptr.
- * @ptr: source pointer.
+ * @ptr: src pointer.
  * @s: size of the new ptr.
  *
  * Return: no return.
