@@ -79,7 +79,7 @@ typedef struct r_var_list
 	char *val;
 	int lens_val;
 	struct r_var_list *next;
-} r_var;
+} rvar;
 
 /**
  * struct builtin_s - Builtin struct for command argurments
