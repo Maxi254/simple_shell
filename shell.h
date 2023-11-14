@@ -122,4 +122,6 @@ int cm_char(char str[], const char *dm);
 char *_sttk(char str[], const char *dem);
 int _isdigit(const char *s);
 
+/* string functions au_st3.c */
+void rev_str(char *a);
 #endif
