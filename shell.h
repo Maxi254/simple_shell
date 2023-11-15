@@ -89,7 +89,7 @@ typedef struct r_var_list
 typedef struct builtin_s
 {
 	char *name;
-	int (*f)(dt_shell *datash);
+	int (*f)(dt_shell *dtsh);
 } builtin_t;
 
 /* linked lists.c */
