@@ -91,7 +91,7 @@ int ft_char(char *ipt, int *i)
 
 /**
  * pt_syn_err - ptss when a syn err is found
- * @datash: data structure
+ * @dtsh: data structure
  * @input: input string
  * @i: index of the error
  * @bool: to control msg error
