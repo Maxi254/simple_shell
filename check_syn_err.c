@@ -118,54 +118,52 @@ void pt_syn_err(dt_shell *dtsh, char *ipt, int i, int b)
 
 	m2 = ": Syntax error: \"";
 	m3 = "\" unexpected\n";
-	c = aux_itoa(datash->counter);
-	lens = _stlen(datash->av[0]) + _stlen(counter);
-	length += _strlen(msg) + _strlen(msg2) + _strlen(msg3) + 2;
+	c = aux_itoa(dtsh->counter);
+	lens = _stlen(dtsh->av[0]) + _stlen(c);
+	lens += _stlen(m) + _stlen(m2) + _stlen(m3) + 2;
 
-	error = malloc(sizeof(char) * (length + 1));
-	if (error == 0)
+	err = malloc(sizeof(char) * (lens + 1));
+	if (err == 0)
 	{
-		free(counter);
+		free(c);
 		return;
 	}
-	_strcpy(error, datash->av[0]);
-	_strcat(error, ": ");
-	_strcat(error, counter);
-	_strcat(error, msg2);
-	_strcat(error, msg);
-	_strcat(error, msg3);
-	_strcat(error, "\0");
+	_stcpy(err, dtsh->av[0]);
+	_stct(err, ": ");
+	_stct(err, c);
+	_stct(err, m2);
+	_stct(err, m);
+	_stct(err, m3);
+	_strct(err, "\0");
 
-	write(STDERR_FILENO, error, length);
-	free(error);
-	free(counter);
+	write(STDERR_FILENO, err, lens);
+	free(err);
+	free(c);
 }
 
 /**
- * check_syntax_error - intermediate function to
- * find and print a syntax error
- *
- * @datash: data structure
- * @input: input string
- * Return: 1 if there is an error. 0 in other case
+ * check_syn_err - fuction to find intermediatires
+ * @dtsh: data struct
+ * @ipt: input str
+ * Return: 1 if there is an err. 0 in other case
  */
-int check_syntax_error(data_shell *datash, char *input)
+int check_syn_err(dt_shell *dtsh, char *ipt)
 {
-	int begin = 0;
-	int f_char = 0;
-	int i = 0;
+	int b = 0;
+	int fchar = 0;
+	int a = 0;
 
-	f_char = first_char(input, &begin);
-	if (f_char == -1)
+	fchar = first_char(ipt, &b);
+	if (fchar == -1)
 	{
-		print_syntax_error(datash, input, begin, 0);
+		pt_syn_err(dtsh, ipt, b, 0);
 		return (1);
 	}
 
-	i = error_sep_op(input + begin, 0, *(input + begin));
-	if (i != 0)
+	i = err_sep_op(ipt + b, 0, *(ipt + b));
+	if (a != 0)
 	{
-		print_syntax_error(datash, input, begin + i, 1);
+		pt_syn_err(dtsh, ipt, b + a, 1);
 		return (1);
 	}
 
