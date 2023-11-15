@@ -2,87 +2,85 @@
 
 /**
  * rep_char - counts the reps of a char
- * @i: input str
+ * @ipt: input str
  * @i: index
  * Return: repetitions
  */
-int repeated_char(char *input, int i)
+int rep_char(char *ipt, int i)
 {
-	if (*(input - 1) == *input)
-		return (repeated_char(input - 1, i + 1));
+	if (*(ipt - 1) == *ipt)
+		return (rep_char(ipt - 1, i + 1));
 
 	return (i);
 }
 
 /**
- * error_sep_op - finds syntax errors
+ * err_sep_op - finds syn err
  *
- * @input: input string
+ * @ipt: ipt str
  * @i: index
- * @last: last char read
+ * @l: last char read
  * Return: index of error. 0 when there are no
- * errors
  */
-int error_sep_op(char *input, int i, char last)
+int err_sep_op(char *ipt, int i, char l)
 {
-	int count;
+	int a;
 
-	count = 0;
-	if (*input == '\0')
+	a = 0;
+	if (*ipt == '\0')
 		return (0);
 
-	if (*input == ' ' || *input == '\t')
-		return (error_sep_op(input + 1, i + 1, last));
+	if (*ipt == ' ' || *ipt == '\t')
+		return (err_sep_op(ipt + 1, i + 1, l));
 
-	if (*input == ';')
-		if (last == '|' || last == '&' || last == ';')
+	if (*ipt == ';')
+		if (l == '|' || l == '&' || l == ';')
 			return (i);
 
-	if (*input == '|')
+	if (*ipt == '|')
 	{
-		if (last == ';' || last == '&')
+		if (l == ';' || l == '&')
 			return (i);
 
-		if (last == '|')
+		if (l == '|')
 		{
-			count = repeated_char(input, 0);
-			if (count == 0 || count > 1)
+			a = rep_char(ipt, 0);
+			if (a == 0 || a > 1)
 				return (i);
 		}
 	}
 
-	if (*input == '&')
+	if (*ipt == '&')
 	{
-		if (last == ';' || last == '|')
+		if (l == ';' || l == '|')
 			return (i);
 
-		if (last == '&')
+		if (l == '&')
 		{
-			count = repeated_char(input, 0);
-			if (count == 0 || count > 1)
+			a = rep_char(ipt, 0);
+			if (a == 0 || a > 1)
 				return (i);
 		}
 	}
 
-	return (error_sep_op(input + 1, i + 1, *input));
+	return (err_sep_op(ipt + 1, i + 1, *ipt));
 }
 
 /**
- * first_char - finds index of the first char
- *
- * @input: input string
+ * ft_char - gets first char
+ * @ipt: imput from the user
  * @i: index
- * Return: 1 if there is an error. 0 in other case.
+ * Return: 0 for success, 1 for error
  */
-int first_char(char *input, int *i)
+int ft_char(char *ipt, int *i)
 {
 
-	for (*i = 0; input[*i]; *i += 1)
+	for (*i = 0; ipt[*i]; *i += 1)
 	{
-		if (input[*i] == ' ' || input[*i] == '\t')
+		if (ipt[*i] == ' ' || ipt[*i] == '\t')
 			continue;
 
-		if (input[*i] == ';' || input[*i] == '|' || input[*i] == '&')
+		if (ipt[*i] == ';' || ipt[*i] == '|' || ipt[*i] == '&')
 			return (-1);
 
 		break;
@@ -92,8 +90,7 @@ int first_char(char *input, int *i)
 }
 
 /**
- * print_syntax_error - prints when a syntax error is found
- *
+ * pt_syn_err - ptss when a syn err is found
  * @datash: data structure
  * @input: input string
  * @i: index of the error
