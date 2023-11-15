@@ -129,8 +129,8 @@ void rev_str(char *a);
 int rep_char(char *ipt, int i);
 int err_sep_op(char *ipt, int i, char l);
 int ft_char(char *ipt, int *i);
-void pt_syn_err(dt_shell *dtsh, char *i, int i, int b);
-int check_syntax_error(dt_shell *dtsh, char *i);
+void pt_syn_err(dt_shell *dtsh, char *ipt, int i, int b);
+int check_syntax_error(dt_shell *dtsh, char *ipt);
 
 
 #endif
