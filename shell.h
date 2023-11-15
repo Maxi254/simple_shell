@@ -124,4 +124,13 @@ int _isdigit(const char *s);
 
 /* string functions au_st3.c */
 void rev_str(char *a);
+
+/* for checking syntax errors */
+int rep_char(char *i, int i);
+int err_sep_op(char *i, int i, char l);
+int ft_char(char *i, int *i);
+void pt_syn_err(dt_shell *dtsh, char *i, int i, int b);
+int check_syntax_error(dt_shell *dtsh, char *i);
+
+
 #endif
