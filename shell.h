@@ -130,7 +130,12 @@ int rep_char(char *ipt, int i);
 int err_sep_op(char *ipt, int i, char l);
 int ft_char(char *ipt, int *i);
 void pt_syn_err(dt_shell *dtsh, char *ipt, int i, int b);
-int check_syntax_error(dt_shell *dtsh, char *ipt);
+int check_syn_err(dt_shell *dtsh, char *ipt);
+
+/* standard library functions */
+int gt_lens(int a);
+char *au_itoa(int a);
+int _atoi(char *s);
 
 
 #endif
