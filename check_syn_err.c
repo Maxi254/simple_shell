@@ -92,34 +92,34 @@ int ft_char(char *ipt, int *i)
 /**
  * pt_syn_err - ptss when a syn err is found
  * @dtsh: data structure
- * @input: input string
- * @i: index of the error
- * @bool: to control msg error
+ * @ipt: ipt str
+ * @i: index of the err
+ * @b: to control msg error
  * Return: no return
  */
-void print_syntax_error(data_shell *datash, char *input, int i, int bool)
+void pt_syn_err(dt_shell *dtsh, char *ipt, int i, int b)
 {
-	char *msg, *msg2, *msg3, *error, *counter;
-	int length;
+	char *m, *m2, *m3, *err, *c;
+	int lens;
 
-	if (input[i] == ';')
+	if (ipt[i] == ';')
 	{
-		if (bool == 0)
-			msg = (input[i + 1] == ';' ? ";;" : ";");
+		if (b == 0)
+			m = (ipt[i + 1] == ';' ? ";;" : ";");
 		else
-			msg = (input[i - 1] == ';' ? ";;" : ";");
+			m = (ipt[i - 1] == ';' ? ";;" : ";");
 	}
 
-	if (input[i] == '|')
-		msg = (input[i + 1] == '|' ? "||" : "|");
+	if (ipt[i] == '|')
+		m = (ipt[i + 1] == '|' ? "||" : "|");
 
-	if (input[i] == '&')
-		msg = (input[i + 1] == '&' ? "&&" : "&");
+	if (ipt[i] == '&')
+		m = (ipt[i + 1] == '&' ? "&&" : "&");
 
-	msg2 = ": Syntax error: \"";
-	msg3 = "\" unexpected\n";
-	counter = aux_itoa(datash->counter);
-	length = _strlen(datash->av[0]) + _strlen(counter);
+	m2 = ": Syntax error: \"";
+	m3 = "\" unexpected\n";
+	c = aux_itoa(datash->counter);
+	lens = _stlen(datash->av[0]) + _stlen(counter);
 	length += _strlen(msg) + _strlen(msg2) + _strlen(msg3) + 2;
 
 	error = malloc(sizeof(char) * (length + 1));
