@@ -126,9 +126,9 @@ int _isdigit(const char *s);
 void rev_str(char *a);
 
 /* for checking syntax errors */
-int rep_char(char *i, int i);
-int err_sep_op(char *i, int i, char l);
-int ft_char(char *i, int *i);
+int rep_char(char *ipt, int i);
+int err_sep_op(char *ipt, int i, char l);
+int ft_char(char *ipt, int *i);
 void pt_syn_err(dt_shell *dtsh, char *i, int i, int b);
 int check_syntax_error(dt_shell *dtsh, char *i);
 
