@@ -31,19 +31,19 @@ void st_dt(dt_shell *dtsh, char **ax)
 	unsigned int a;
 
 	dtsh->av = ax;
-	dtsh->input = NULL;
-	dtsh->args = NULL;
+	dtsh->inpt = NULL;
+	dtsh->as = NULL;
 	dtsh->status = 0;
-	dtsh->counter = 1;
+	dtsh->count = 1;
 
-	for (a = 0; environ[a]; a++)
+	for (a = 0; env[a]; a++)
 		;
 
 	dtsh->_environ = malloc(sizeof(char *) * (a + 1));
 
-	for (a = 0; environ[a]; a++)
-	{  `
-		dtsh->_environ[a] = _stdp(environ[a]);
+	for (a = 0; env[a]; a++)
+	{  
+		dtsh->_environ[a] = _stdp(env[a]);
 	}
 
 	dtsh->_environ[a] = NULL;
@@ -63,8 +63,8 @@ int main(int ac, char **av)
 	dt_shell dtsh;
 	(void) ac;
 
-	signal(SIGINT, get_sigint);
-	set_data(&dtsh, av);
+	signal(SIGINT, get_sig);
+	st_dt(&dtsh, av);
 	shell_loop(&dtsh);
 	free_data(&dtsh);
 	if (dtsh.status < 0)
