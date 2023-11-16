@@ -135,7 +135,7 @@ int check_syn_err(dt_shell *dtsh, char *ipt);
 /* standard library functions */
 int gt_lens(int a);
 char *au_itoa(int a);
-int _atoi(char *s);
+int _atoi(char *a);
 
 
 #endif
