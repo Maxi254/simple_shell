@@ -89,7 +89,7 @@ typedef struct r_var_list
 typedef struct builtin_s
 {
 	char *name;
-	int (*f)(dt_shell *datash);
+	int (*f)(dt_shell *dtsh);
 } builtin_t;
 
 /* linked lists.c */
@@ -124,4 +124,18 @@ int _isdigit(const char *s);
 
 /* string functions au_st3.c */
 void rev_str(char *a);
+
+/* for checking syntax errors */
+int rep_char(char *ipt, int i);
+int err_sep_op(char *ipt, int i, char l);
+int ft_char(char *ipt, int *i);
+void pt_syn_err(dt_shell *dtsh, char *ipt, int i, int b);
+int check_syn_err(dt_shell *dtsh, char *ipt);
+
+/* standard library functions */
+int gt_lens(int a);
+char *au_itoa(int a);
+int _atoi(char *a);
+
+
 #endif
