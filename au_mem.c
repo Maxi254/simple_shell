@@ -14,7 +14,7 @@ void _memcp(void *nptr, const void *ptr, unsigned int s)
 	char *char_nptr = (char *)nptr;
 	unsigned int a;
 
-	for (a = 0; a < size; a++)
+	for (a = 0; a < s; a++)
 		char_nptr[a] = char_ptr[a];
 }
 

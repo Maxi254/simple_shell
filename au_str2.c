@@ -10,7 +10,7 @@ char *_stdp(const char *a)
 	char *n;
 	size_t lens;
 
-	lens = _strlen(a);
+	lens = _stlen(a);
 	n = malloc(sizeof(char) * (lens + 1));
 	if (n == NULL)
 		return (NULL);
@@ -77,7 +77,7 @@ char *_sttok(char str[], const char *dem)
 	{
 		if (cm_char(str, dem))
 			return (NULL);
-		spd = str
+		spd = str;
 		i = _stlen(str);
 		str_end = &str[i]; /*Stost address*/
 	}

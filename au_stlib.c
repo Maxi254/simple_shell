@@ -22,7 +22,7 @@ int gt_lens(int a)
 	while (num1 > 9)
 	{
 		lens++;
-		num1 = a1 / 10;
+		num1 = a / 10;
 	}
 
 	return (lens);
@@ -34,8 +34,8 @@ int gt_lens(int a)
  */
 char *au_itoa(int a)
 {
-	unsigned int nu1;
-	int lenght = gt_lens(n);
+	unsigned int num1;
+	int lens = gt_lens(a);
 	char *buffer;
 
 	buffer = malloc(sizeof(char) * (lens + 1));
@@ -76,7 +76,7 @@ int _atoi(char *a)
 
 	while (*(a + c) != '\0')
 	{
-		if (s > 0 && (*(s + c) < '0' || *(a + c) > '9'))
+		if (s > 0 && (*(a + c) < '0' || *(a + c) > '9'))
 			break;
 
 		if (*(a + c) == '-')
@@ -93,7 +93,7 @@ int _atoi(char *a)
 
 	for (i = c - s; i < c; i++)
 	{
-		o = o + ((*(s + i) - 48) * m);
+		o = o + ((*(a + i) - 48) * m);
 		m /= 10;
 	}
 	return (o * p);

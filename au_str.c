@@ -34,7 +34,7 @@ char *_stcp(char *d, char *s)
 
 	size_t i;
 
-	for (i = 0; s[a] != '\0'; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		d[i] = s[i];
 	}

@@ -118,7 +118,7 @@ void pt_syn_err(dt_shell *dtsh, char *ipt, int i, int b)
 
 	m2 = ": Syntax error: \"";
 	m3 = "\" unexpected\n";
-	c = aux_itoa(dtsh->counter);
+	c = au_itoa(dtsh->count);
 	lens = _stlen(dtsh->av[0]) + _stlen(c);
 	lens += _stlen(m) + _stlen(m2) + _stlen(m3) + 2;
 
@@ -128,13 +128,13 @@ void pt_syn_err(dt_shell *dtsh, char *ipt, int i, int b)
 		free(c);
 		return;
 	}
-	_stcpy(err, dtsh->av[0]);
+	_stcp(err, dtsh->av[0]);
 	_stct(err, ": ");
 	_stct(err, c);
 	_stct(err, m2);
 	_stct(err, m);
 	_stct(err, m3);
-	_strct(err, "\0");
+	_stct(err, "\0");
 
 	write(STDERR_FILENO, err, lens);
 	free(err);
@@ -153,14 +153,14 @@ int check_syn_err(dt_shell *dtsh, char *ipt)
 	int fchar = 0;
 	int a = 0;
 
-	fchar = first_char(ipt, &b);
+	fchar = ft_char(ipt, &b);
 	if (fchar == -1)
 	{
 		pt_syn_err(dtsh, ipt, b, 0);
 		return (1);
 	}
 
-	i = err_sep_op(ipt + b, 0, *(ipt + b));
+	a = err_sep_op(ipt + b, 0, *(ipt + b));
 	if (a != 0)
 	{
 		pt_syn_err(dtsh, ipt, b + a, 1);
