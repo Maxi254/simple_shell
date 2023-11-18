@@ -107,7 +107,7 @@ char *_stct(char *d, const char *s);
 char *_stcp(char *d, char *s);
 int _stcmp(char *s1, char *s2);
 char *_stchr(char *s, char c);
-int _stspn(char *s, char *accept);
+int _stpn(char *s, char *accept);
 
 /* memm.c for memory managements*/
 void _memcp(void *nptr, const void *ptr, unsigned int s);
@@ -136,6 +136,9 @@ int check_syn_err(dt_shell *dtsh, char *ipt);
 int gt_lens(int a);
 char *au_itoa(int a);
 int _atoi(char *a);
+
+/* func that gets sig */
+void gt_sig(int s);
 
 
 #endif

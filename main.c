@@ -63,7 +63,7 @@ int main(int ac, char **av)
 	dt_shell dtsh;
 	(void) ac;
 
-	signal(SIGINT, get_sig);
+	signal(SIGINT, gt_sig);
 	st_dt(&dtsh, av);
 	shell_loop(&dtsh);
 	free_data(&dtsh);

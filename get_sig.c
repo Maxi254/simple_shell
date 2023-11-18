@@ -6,6 +6,6 @@
  */
 void get_sig(int s)
 {
-	(void)s:;
+	(void)s;
 	write(STDOUT_FILENO, "\n^-^ ", 5);
 }
