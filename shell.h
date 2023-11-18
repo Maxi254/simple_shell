@@ -140,5 +140,9 @@ int _atoi(char *a);
 /* func that gets sig */
 void gt_sig(int s);
 
+/* func for getting lines */
+void bg_line(char **lptr, size_t *a, char *b, size_t j);
+ssize_t gt_line(char **lptr, size_t *a, FILE *stm);
+
 
 #endif
