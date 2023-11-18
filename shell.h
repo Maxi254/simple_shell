@@ -147,4 +147,8 @@ ssize_t gt_line(char **lptr, size_t *a, FILE *stm);
 /* func that gets builtin */
 int (*gt_builtin(char *cmd))(dt_shell *dtsh);
 
+/* func that loops shell */
+char *wt_comm(char *in);
+void shell_lp(dt_shell *dtsh);
+
 #endif
