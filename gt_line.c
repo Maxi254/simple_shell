@@ -29,7 +29,7 @@ void bg_line(char **lptr, size_t *a, char *b, size_t s)
 	}
 	else
 	{
-		_stcpy(*lptr, b);
+		_stcp(*lptr, b);
 		free(b);
 	}
 }
@@ -60,7 +60,7 @@ ssize_t gt_line(char **lptr, size_t *a, FILE *stm)
 	while (t != '\n')
 	{
 		i = read(STDIN_FILENO, &t, 1);
-		if (i == -1 || (i == 0 && input == 0))
+		if (i == -1 || (i == 0 && ipt == 0))
 		{
 			free(b);
 			return (-1);
@@ -71,7 +71,7 @@ ssize_t gt_line(char **lptr, size_t *a, FILE *stm)
 			break;
 		}
 		if (ipt >= BUFSIZE)
-			b = _realloc(b, ipt, ipt + 1);
+			b = _reloc(b, ipt, ipt + 1);
 		b[ipt] = t;
 		ipt++;
 	}
