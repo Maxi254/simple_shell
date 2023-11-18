@@ -144,5 +144,7 @@ void gt_sig(int s);
 void bg_line(char **lptr, size_t *a, char *b, size_t s);
 ssize_t gt_line(char **lptr, size_t *a, FILE *stm);
 
+/* func that gets builtin */
+int (*gt_builtin(char *cmd))(dt_shell *dtsh);
 
 #endif
