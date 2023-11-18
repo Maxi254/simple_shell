@@ -142,7 +142,17 @@ void gt_sig(int s);
 
 /* func for getting lines */
 void bg_line(char **lptr, size_t *a, char *b, size_t s);
-ssize_t gt_line(char **lptr, size_t *a, FILE *stm);
+ssize_t gt_line(char **lptr, size_t *a, FILE *stm);/* split.c */
+
+/*func fr splitting commandss */
+char *sp_char(char *ipt, int b);
+void add_nod(sep_list **h_s, line_list **h_l, char *ipt);
+void go_nt(sep_list **lt_s, line_list **lt_l, dt_shell *dtsh);
+int spt_cms(dt_shell *dtsh, char *ipt);
+char **st_line(char *ipt);
+
+
+
 
 
 #endif
