@@ -22,13 +22,13 @@ char *wt_comm(char *in)
 			}
 
 			if (in[i - 1] == ' ' || in[i - 1] == '\t' || in[i - 1] == ';')
-				u_t = i;
+				ut = i;
 		}
 	}
 
-	if (u_t != 0)
+	if (ut != 0)
 	{
-		in = reloc(in, i, ut + 1);
+		in = _reloc(in, i, ut + 1);
 		in[ut] = '\0';
 	}
 
@@ -64,7 +64,7 @@ void shell_lp(dt_shell *dtsh)
 				continue;
 			}
 			ipt = rep_var(ipt, dtsh);
-			lp = spt_cmds(dtsh, ipt);
+			lp = spt_cms(dtsh, ipt);
 			dtsh->count += 1;
 			free(ipt);
 		}

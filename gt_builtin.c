@@ -8,10 +8,10 @@
 int (*gt_builtin(char *cmd))(dt_shell *)
 {
 	builtin_t builtin[] = {
-		{ "env", _env },
+		{ "env", env },
 		{ "exit", exit_shell },
-		{ "setenv", _setenv },
-		{ "unsetenv", _unsetenv },
+		{ "setenv", setenv },
+		{ "unsetenv", unsetenv },
 		{ "cd", cd_shell },
 		{ "help", get_help },
 		{ NULL, NULL }

@@ -146,8 +146,8 @@ ssize_t gt_line(char **lptr, size_t *a, FILE *stm);/* split.c */
 
 /*func fr splitting commandss */
 char *sp_char(char *ipt, int b);
-void add_nod(sep_list **h_s, line_list **h_l, char *ipt);
-void go_nt(sep_list **lt_s, line_list **lt_l, dt_shell *dtsh);
+void add_nod(sepa_list **h_s, line_list **h_l, char *ipt);
+void go_nt(sepa_list **lt_s, line_list **lt_l, dt_shell *dtsh);
 int spt_cms(dt_shell *dtsh, char *ipt);
 char **st_line(char *ipt);
 
@@ -160,5 +160,14 @@ int (*gt_builtin(char *cmd))(dt_shell *dtsh);
 /* func that loops shell */
 char *wt_comm(char *in);
 void shell_lp(dt_shell *dtsh);
+
+/* func that changes directory */
+void cd_dt(dt_shell *dtsh);
+void cd_to(dt_shell *dtsh);
+void cd_prev(dt_shell *dtsh);
+void cd_t_hom(dt_shell *dtsh);
+
+/* changes directory of the shell */
+int cd_sh(dt_shell *dtsh);
 
 #endif

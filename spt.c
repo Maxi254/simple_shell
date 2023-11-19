@@ -69,11 +69,11 @@ void add_nod(sepa_list **h_s, line_list **h_l, char *ipt)
 		}
 	}
 
-	line = _sttok(ipt, ";|&");
+	line = _sttk(ipt, ";|&");
 	do {
 		line = sp_char(line, 1);
 		add_line_nod_end(h_l, line);
-		line = _sttok(NULL, ";|&");
+		line = _sttk(NULL, ";|&");
 	} while (line != NULL);
 
 }
@@ -99,16 +99,16 @@ void go_nt(sepa_list **lt_s, line_list **lt_l, dt_shell *dtsh)
 	{
 		if (dtsh->status == 0)
 		{
-			if (ls_s->separator == '&' || ls_s->separator == ';')
+			if (ls_s->septr == '&' || ls_s->septr == ';')
 				lp_sep = 0;
-			if (ls_s->separator == '|')
+			if (ls_s->septr == '|')
 				ls_l = ls_l->next, ls_s = ls_s->next;
 		}
 		else
 		{
-			if (ls_s->separator == '|' || ls_s->separator == ';')
+			if (ls_s->septr == '|' || ls_s->septr == ';')
 				lp_sep = 0;
-			if (ls_s->separator == '&')
+			if (ls_s->septr == '&')
 				ls_l = ls_l->next, ls_s = ls_s->next;
 		}
 		if (ls_s != NULL && !lp_sep)
@@ -142,10 +142,10 @@ int spt_cms(dt_shell *dtsh, char *ipt)
 
 	while (lt_l != NULL)
 	{
-		dtsh->input = list_l->line;
-		dtsh->args = st_line(dtsh->input);
+		dtsh->inpt = lt_l->line;
+		dtsh->as = st_line(dtsh->inpt);
 		l = exe_line(dtsh);
-		free(dtsh->args);
+		free(dtsh->as);
 
 		if (l == 0)
 			break;
@@ -156,7 +156,7 @@ int spt_cms(dt_shell *dtsh, char *ipt)
 			lt_l = lt_l->next;
 	}
 
-	free_sep_lt(&h_s);
+	free_sepa_list(&h_s);
 	free_line_lt(&h_l);
 
 	if (l == 0)
@@ -185,7 +185,7 @@ char **st_line(char *ipt)
 		exit(EXIT_FAILURE);
 	}
 
-	t = _sttk(input, TOK_DELIM);
+	t = _sttk(ipt, TOK_DELIM);
 	tokens[0] = t;
 
 	for (i = 1; t != NULL; i++)
@@ -193,7 +193,7 @@ char **st_line(char *ipt)
 		if (i == b_s)
 		{
 			b_s += TOK_BUFSIZE;
-			tokens = _reallocdp(tokens, i, sizeof(char *) * b_s);
+			tokens = _relocdp(tokens, i, sizeof(char *) * b_s);
 			if (tokens == NULL)
 			{
 				write(STDERR_FILENO, ": allocation error\n", 18);
