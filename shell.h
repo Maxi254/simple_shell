@@ -151,7 +151,16 @@ void go_nt(sepa_list **lt_s, line_list **lt_l, dt_shell *dtsh);
 int spt_cms(dt_shell *dtsh, char *ipt);
 char **st_line(char *ipt);
 
+/*func for env1.c */
+int cp_env_nm(const char *n_env, const char *nm);
+char *getenv(const char *nm, char **_env);
 
+
+/* func for env2.c */
+char *cp_info(char *nm, char *val);
+void st_env(char *nm, char *val, dt_shell *dtsh);
+int _setenv(dt_shell *dtsh);
+int _unsetenv(dt_shell *dtsh);
 
 
 /* func that gets builtin */
@@ -169,5 +178,21 @@ void cd_t_hom(dt_shell *dtsh);
 
 /* changes directory of the shell */
 int cd_sh(dt_shell *dtsh);
+
+/* func that gets error */
+int get_err(dt_shell *dtsh, int ev);
+
+/*func that solves error */
+char *stct_cd(dt_shell *, char *, char *, char *);
+char *err_not_fd(dt_shell *dtsh);
+char *err_gt_cd(dt_shell *dtsh);
+char *err_exit_shell(dt_shell *dtsh);
+
+/* erro2 */
+char *err_gt_alias(char **as);
+char *err_env(dt_shell *dtsh);
+char *err_syn(char **as);
+char *err_perm(char **as);
+char *err_pt(dt_shell *dtsh);
 
 #endif
