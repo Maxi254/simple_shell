@@ -13,9 +13,9 @@ char *cp_info(char *nm, char *val)
 	int l_n, l_v, len;
 
 	l_n = _stlen(nm);
-	l_val = _stlen(val);
-	len = l_n + l_val + 2;
-	new = malloc(sizeof(char) * (len));
+	l_v = _stlen(val);
+	len = l_n + l_v + 2;
+	a = malloc(sizeof(char) * (len));
 	_stcp(a, nm);
 	_stct(a, "=");
 	_stct(a, val);
@@ -84,7 +84,7 @@ int _setenv(dt_shell *dtsh)
 int _unsetenv(dt_shell *dtsh)
 {
 	char **reloc_env;
-	char *var, *nam
+	char *var, *nam;
 	int a, j, k;
 
 	if (dtsh->as[1] == NULL)
@@ -96,7 +96,7 @@ int _unsetenv(dt_shell *dtsh)
 	for (a = 0; dtsh->_environ[a]; a++)
 	{
 		var = _stdp(dtsh->_environ[a]);
-		nam = _strtok(var_env, "=");
+		nam = _sttk(var, "=");
 		if (_stcmp(nam, dtsh->as[1]) == 0)
 		{
 			k = a;
@@ -113,7 +113,7 @@ int _unsetenv(dt_shell *dtsh)
 	{
 		if (a != k)
 		{
-			reloc_environ[j] = dtsh->_environ[a];
+			reloc_env[j] = dtsh->_environ[a];
 			j++;
 		}
 	}

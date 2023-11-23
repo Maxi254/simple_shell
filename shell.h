@@ -153,7 +153,7 @@ char **st_line(char *ipt);
 
 /*func for env1.c */
 int cp_env_nm(const char *n_env, const char *nm);
-char *getenv(const char *nm, char **_env);
+char *_getenv(const char *nm, char **_env);
 
 
 /* func for env2.c */
@@ -188,11 +188,18 @@ char *err_not_fd(dt_shell *dtsh);
 char *err_gt_cd(dt_shell *dtsh);
 char *err_exit_shell(dt_shell *dtsh);
 
-/* erro2 */
+/*aux_err2 */
 char *err_gt_alias(char **as);
 char *err_env(dt_shell *dtsh);
 char *err_syn(char **as);
 char *err_perm(char **as);
 char *err_pt(dt_shell *dtsh);
+
+/* func for aux.err1.c */
+char *stct_cd(dt_shell *, char *, char *, char *);
+char *err_gt_cd(dt_shell *dtsh);
+char *err_nt_fd(dt_shell *dtsh);
+char *err_exit_shell(dt_shell *dtsh);
+
 
 #endif

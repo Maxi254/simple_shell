@@ -43,10 +43,10 @@ char *_getenv(const char *nm, char **_env)
   for (a = 0; _env[a]; a++)
 	{
 		
-		m = cp_env_nm(_environ[i], nm);
+		m = cp_env_nm(_env[a], nm);
 		if (m)
 		{
-			pt_env = _environ[a];
+			pt_env = _env[a];
 			break;
 		}
 	}
