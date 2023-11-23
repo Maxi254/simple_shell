@@ -1,69 +1,69 @@
 #include "shell.h"
 
 /**
- * error_env - error message for env in get_env.
- * @datash: data relevant (counter, arguments)
+ * err_env - error message for env in get_env.
+ * @dtsh: data relevant (counter, arguments)
  * Return: error message.
  */
-char *error_env(data_shell *datash)
+char *err_env(dt_shell *dtsh)
 {
-	int length;
-	char *error;
+	int lens;
+	char *err;
 	char *ver_str;
 	char *msg;
 
-	ver_str = aux_itoa(datash->counter);
+	ver_str = au_itoa(dtsh->count);
 	msg = ": Unable to add/remove from environment\n";
-	length = _strlen(datash->av[0]) + _strlen(ver_str);
-	length += _strlen(datash->args[0]) + _strlen(msg) + 4;
-	error = malloc(sizeof(char) * (length + 1));
-	if (error == 0)
+	lens = _stlen(dtsh->av[0]) + _stlen(ver_str);
+	lens += _stlen(dtsh->as[0]) + _stlen(msg) + 4;
+	err = malloc(sizeof(char) * (lens + 1));
+	if (err == 0)
 	{
-		free(error);
+		free(err);
 		free(ver_str);
 		return (NULL);
 	}
 
-	_strcpy(error, datash->av[0]);
-	_strcat(error, ": ");
-	_strcat(error, ver_str);
-	_strcat(error, ": ");
-	_strcat(error, datash->args[0]);
-	_strcat(error, msg);
-	_strcat(error, "\0");
+	_stcp(err, dtsh->av[0]);
+	_stct(err, ": ");
+	_stct(err, ver_str);
+	_stct(err, ": ");
+	_stct(err, dtsh->as[0]);
+	_stct(err, msg);
+	_stct(err, "\0");
 	free(ver_str);
 
-	return (error);
+	return (err);
 }
 /**
- * error_path_126 - error message for path and failure denied permission.
- * @datash: data relevant (counter, arguments).
+ * err_pt - error message for path and failure denied permission.
+ * @dtsh: data relevant (count, arguments).
  *
  * Return: The error string.
  */
-char *error_path_126(data_shell *datash)
+char *err_pt(dt_shell *dtsh)
 {
-	int length;
+	int lens;
 	char *ver_str;
-	char *error;
+	char *err;
 
-	ver_str = aux_itoa(datash->counter);
-	length = _strlen(datash->av[0]) + _strlen(ver_str);
-	length += _strlen(datash->args[0]) + 24;
-	error = malloc(sizeof(char) * (length + 1));
-	if (error == 0)
+	ver_str = au_itoa(dtsh->count);
+	lens = _stlen(dtsh->av[0]) + _stlen(ver_str);
+	lens += _stlen(dtsh->as[0]) + 24;
+	err = malloc(sizeof(char) * (lens + 1));
+	if (err == 0)
 	{
-		free(error);
+		free(err);
 		free(ver_str);
 		return (NULL);
 	}
-	_strcpy(error, datash->av[0]);
-	_strcat(error, ": ");
-	_strcat(error, ver_str);
-	_strcat(error, ": ");
-	_strcat(error, datash->args[0]);
-	_strcat(error, ": Permission denied\n");
-	_strcat(error, "\0");
+	_stcp(err, dtsh->av[0]);
+	_stct(err, ": ");
+	_stct(err, ver_str);
+	_stct(err, ": ");
+	_stct(err, dtsh->as[0]);
+	_stct(err, ": Permission denied\n");
+	_stct(err, "\0");
 	free(ver_str);
-	return (error);
+	return (err);
 }
