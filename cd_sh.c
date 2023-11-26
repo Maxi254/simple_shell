@@ -1,44 +1,43 @@
 #include "shell.h"
 
 /**
- * cd_shell - changes current directory
- *
- * @datash: data relevant
+ * cd_sh - changes current dir
+ * @dtsh: data relevant
  * Return: 1 on success
  */
-int cd_shell(data_shell *datash)
+int cd_sh(dt_shell *dtsh)
 {
 	char *dir;
-	int ishome, ishome2, isddash;
+	int home, home2, isddash;
 
-	dir = datash->args[1];
+	dir = dtsh->as[1];
 
 	if (dir != NULL)
 	{
-		ishome = _strcmp("$HOME", dir);
-		ishome2 = _strcmp("~", dir);
-		isddash = _strcmp("--", dir);
+		home = _stcmp("$HOME", dir);
+		home2 = _stcmp("~", dir);
+		isddash = _stcmp("--", dir);
 	}
 
-	if (dir == NULL || !ishome || !ishome2 || !isddash)
+	if (dir == NULL || !home || !home2 || !isddash)
 	{
-		cd_to_home(datash);
+		cd_t_hom(dtsh);
 		return (1);
 	}
 
-	if (_strcmp("-", dir) == 0)
+	if (_stcmp("-", dir) == 0)
 	{
-		cd_previous(datash);
+		cd_prev(dtsh);
 		return (1);
 	}
 
-	if (_strcmp(".", dir) == 0 || _strcmp("..", dir) == 0)
+	if (_stcmp(".", dir) == 0 || _stcmp("..", dir) == 0)
 	{
-		cd_dot(datash);
+		cd_dt(dtsh);
 		return (1);
 	}
 
-	cd_to(datash);
+	cd_to(dtsh);
 
 	return (1);
 }
