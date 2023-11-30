@@ -207,6 +207,17 @@ int exit_sh(dt_shell *dtsh);
 /* func that gets help*/
 int gt_help(dt_shell *dtsh);
 
+/* aux_help.c */
+void aux_hp_env(void);
+void aux_hp_setenv(void);
+void aux_hp_unsetenv(void);
+void aux_hp_gl(void);
+void aux_hp_exit(void);
+
+/*aux_help2.c */
+void aux_hp(void);
+void aux_hp_alias(void);
+void aux_hp_cd(void);
 
 
 

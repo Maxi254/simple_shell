@@ -1,31 +1,30 @@
 #include "shell.h"
 
 /**
- * exit_shell - exits the shell
- *
- * @datash: data relevant (status and args)
+ * exit_sh - exits the shelll
+ * @dtsh: data relevant (status and args)
  * Return: 0 on success.
  */
-int exit_shell(data_shell *datash)
+int exit_sh(dt_shell *dtsh)
 {
-	unsigned int ustatus;
+	unsigned int us;
 	int is_digit;
-	int str_len;
-	int big_number;
+	int st_len;
+	int big_num;
 
-	if (datash->args[1] != NULL)
+	if (dtsh->as[1] != NULL)
 	{
-		ustatus = _atoi(datash->args[1]);
-		is_digit = _isdigit(datash->args[1]);
-		str_len = _strlen(datash->args[1]);
-		big_number = ustatus > (unsigned int)INT_MAX;
-		if (!is_digit || str_len > 10 || big_number)
+		us = _atoi(dtsh->as[1]);
+		is_digit = _isdigit(dtsh->as[1]);
+		st_len = _stlen(dtsh->as[1]);
+		big_num = us > (unsigned int)INT_MAX;
+		if (!is_digit || st_len > 10 || big_num)
 		{
-			get_error(datash, 2);
-			datash->status = 2;
+			get_err(dtsh, 2);
+			dtsh->status = 2;
 			return (1);
 		}
-		datash->status = (ustatus % 256);
+		dtsh->status = (us % 256);
 	}
 	return (0);
 }
