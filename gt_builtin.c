@@ -5,14 +5,14 @@
  * @cmd: command
  * Return: func ptrr of the builtin cmd
  */
-int (*gt_builtin(char *cmd))(dt_shell *)
+int (*gt_builtin(char *cmd))(dt_shell *dtsh)
 {
 	builtin_t builtin[] = {
-		{ "env", env },
+		{ "env", _env },
 		{ "exit", exit_shell },
-		{ "setenv", setenv },
-		{ "unsetenv", unsetenv },
-		{ "cd", cd_shell },
+		{ "setenv", _setenv },
+		{ "unsetenv", _unsetenv },
+		{ "cd", cd_sh },
 		{ "help", get_help },
 		{ NULL, NULL }
 	};

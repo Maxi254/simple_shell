@@ -201,6 +201,13 @@ char *err_gt_cd(dt_shell *dtsh);
 char *err_nt_fd(dt_shell *dtsh);
 char *err_exit_shell(dt_shell *dtsh);
 
+/*func for exiting shell */
+int exit_sh(dt_shell *dtsh);
+
+/* func that gets help*/
+int gt_help(dt_shell *dtsh);
+
+
 
 
 #endif

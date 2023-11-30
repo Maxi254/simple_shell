@@ -13,28 +13,28 @@ int get_err(dt_shell *dtsh, int ev)
 	switch (ev)
 	{
 	case -1:
-		error = error_env(datash);
+		err = err_env(dtsh);
 		break;
 	case 126:
-		error = error_path_126(datash);
+		err = err_pt(dtsh);
 		break;
 	case 127:
-		error = error_not_found(datash);
+		err = err_nt_fd(dtsh);
 		break;
 	case 2:
-		if (_strcmp("exit", datash->args[0]) == 0)
-			error = error_exit_shell(datash);
-		else if (_strcmp("cd", datash->args[0]) == 0)
-			error = error_get_cd(datash);
+		if (_stcmp("exit", dtsh->as[0]) == 0)
+			err = err_exit_shell(dtsh);
+		else if (_stcmp("cd", dtsh->as[0]) == 0)
+			err = err_gt_cd(dtsh);
 		break;
 	}
 
-	if (error)
+	if (err)
 	{
-		write(STDERR_FILENO, error, _strlen(error));
-		free(error);
+		write(STDERR_FILENO, err, _stlen(err));
+		free(err);
 	}
 
-	datash->status = eval;
-	return (eval);
+	dtsh->status = ev;
+	return (ev);
 }
